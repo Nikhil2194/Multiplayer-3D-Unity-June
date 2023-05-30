@@ -19,7 +19,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
             // Create the player object across the network
             // PhotonNetwork.Instantiate(playerPrefab.name, spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1].position, Quaternion.identity);
             // PhotonNetwork.Instantiate(playerPrefab.name, spawnPoints[randomIndex].position, Quaternion.identity);
-            PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0,0,0), Quaternion.identity);
+            PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0,0.18f,0.08f), Quaternion.identity);
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using Cinemachine;
 using Photon.Pun;
 using Photon.Realtime;
+using Photon.Voice.PUN;
+using UnityEngine.UI;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -13,11 +15,14 @@ public class ThirdPersonController : MonoBehaviour
     Animator anim;
     public PhotonView pv;
     public CinemachineVirtualCamera vcCam;
+    public PhotonVoiceView PhotonVoiceView;
+    public GameObject recorderSprite;
     void Start()
     {
         vcCam = FindObjectOfType<CinemachineVirtualCamera>();
         characterController = GetComponent<CharacterController>();
         anim =gameObject. GetComponent<Animator>();
+        this.PhotonVoiceView = this.GetComponentInParent<PhotonVoiceView>();
 
 
         if (pv.IsMine)
@@ -26,8 +31,20 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //this.recorderSprite.enabled = this.PhotonVoiceView.IsRecording;
+        if (this.PhotonVoiceView.IsRecording || this.PhotonVoiceView.IsSpeaking)
+        {
+            recorderSprite.SetActive(true);
+        }
+        else
+            recorderSprite.SetActive(false);
+    }
+
     void FixedUpdate()
     {
+        
         if (pv.IsMine)
         {
             float horizontalInput = Input.GetAxis("Horizontal");

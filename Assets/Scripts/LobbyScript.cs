@@ -19,8 +19,8 @@ public class LobbyScript : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        //  LoginPanel.SetActive(false);
-        // loaderImage.SetActive(true);
+        LoginPanel.SetActive(false);
+        loaderImage.SetActive(true);
     }
 
     public override void OnConnectedToMaster()

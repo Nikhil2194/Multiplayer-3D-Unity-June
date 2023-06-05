@@ -41,7 +41,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     public void Artist()
     {
         characterSelection.SetActive(false);
-        GameObject obj = PhotonNetwork.Instantiate(artistPrefab.name, new Vector3(0, 0.85f, 10f),Quaternion.Euler(0,180,0));
+        GameObject obj = PhotonNetwork.Instantiate(artistPrefab.name, new Vector3(0, 0.85f, 10f),Quaternion.identity);
         obj.transform.SetParent(this.transform);
     }
 
